@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Completo - Tu Marca de Ropa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg nav-mys fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand-custom" href="../index.html">
+                    <i class="fas fa-hanger text-acento-morado me-2"></i> MYS INDUMENTARIA
+                </a>
+                <button class="navbar-toggler p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-list text-light" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">INICIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#nosotros-seccion">NOSOTROS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#categorias-seccion">CATEGORÍAS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h1 class="text-center fw-bold mb-5">Catálogo de Productos</h1>
+
+        <ul class="nav nav-tabs justify-content-center mb-4" id="categoryTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="femenino-tab" data-bs-toggle="tab" data-bs-target="#femenino"
+                    type="button" role="tab" aria-controls="femenino" aria-selected="true">
+                    <i class="bi bi-person-woman"></i> Femenino (5 Productos)
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="categoryTabContent">
+
+            <div class="tab-pane fade show active" id="femenino" role="tabpanel" aria-labelledby="femenino-tab">
+                <div class="row g-4">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card product-card">
+                            <div class="product-image-container">
+                                <img src="../images/portada.jpg" class="card-img-top image-front"
+                                    alt="Vestido Floral - Frente">
+                                <img src="../images/1764019339466.png" class="card-img-top image-back"
+                                    alt="Vestido Floral - Detalle">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Vestido Floral de Verano</h5>
+                                <p class="card-text text-muted mb-2">Tela liviana, corte A. Estampado de temporada.</p>
+                                <p class="fs-4 text-success price-text mb-3">**$9.900 ARS**</p>
+                                <div class="mb-3 talle-select-group">
+                                    <label class="form-label fw-bold">Talla:</label>
+                                    <div class="btn-group size-selector w-100" role="group"
+                                        data-product-name="Vestido Floral de Verano" data-product-id="prod-f-01">
+                                        <input type="radio" class="btn-check" name="size-prod-f-01" id="f-01-s"
+                                            value="S" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-01-s">S</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-01" id="f-01-m"
+                                            value="M" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-01-m">M</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-01" id="f-01-l"
+                                            value="L" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-01-l">L</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg mt-auto btn-whatsapp-product"
+                                    data-product="Vestido Floral de Verano" data-type="Vestido"
+                                    data-product-id="prod-f-01" data-whatsapp-number="5491112345678"><i
+                                        class="bi bi-whatsapp"></i> Comprar por WhatsApp</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card product-card">
+                            <div class="product-image-container">
+                                <img src="../images/1764019339466.png" class="card-img-top image-front"
+                                    alt="Calza Deportiva - Frente">
+                                <img src="../images/portada.jpg" class="card-img-top image-back"
+                                    alt="Calza Deportiva - Espalda">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Calza Deportiva High-Waist</h5>
+                                <p class="card-text text-muted mb-2">Con bolsillo oculto. Compresión media, tela stretch.</p>
+                                <p class="fs-4 text-success price-text mb-3">**$6.200 ARS**</p>
+                                <div class="mb-3 talle-select-group">
+                                    <label class="form-label fw-bold">Talla:</label>
+                                    <div class="btn-group size-selector w-100" role="group"
+                                        data-product-name="Calza Deportiva High-Waist" data-product-id="prod-f-02">
+                                        <input type="radio" class="btn-check" name="size-prod-f-02" id="f-02-s"
+                                            value="S" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-02-s">S</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-02" id="f-02-m"
+                                            value="M" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-02-m">M</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-02" id="f-02-l"
+                                            value="L" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-02-l">L</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-02" id="f-02-xl"
+                                            value="XL" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-02-xl">XL</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg mt-auto btn-whatsapp-product"
+                                    data-product="Calza Deportiva High-Waist" data-type="Calza"
+                                    data-product-id="prod-f-02" data-whatsapp-number="5491112345678"><i
+                                        class="bi bi-whatsapp"></i> Comprar por WhatsApp</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card product-card">
+                            <div class="product-image-container">
+                                <img src="/images/placeholder-blusa-frente.png" class="card-img-top image-front"
+                                    alt="Blusa de Seda - Frente">
+                                <img src="/images/placeholder-blusa-detalle.png" class="card-img-top image-back"
+                                    alt="Blusa de Seda - Detalle">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Blusa de Seda Elegante</h5>
+                                <p class="card-text text-muted mb-2">Mangas 3/4, color blanco hueso. Ideal para oficina.</p>
+                                <p class="fs-4 text-success price-text mb-3">**$7.500 ARS**</p>
+                                <div class="mb-3 talle-select-group">
+                                    <label class="form-label fw-bold">Talla:</label>
+                                    <div class="btn-group size-selector w-100" role="group"
+                                        data-product-name="Blusa de Seda Elegante" data-product-id="prod-f-03">
+                                        <input type="radio" class="btn-check" name="size-prod-f-03" id="f-03-m"
+                                            value="M" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-03-m">M</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-03" id="f-03-l"
+                                            value="L" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-03-l">L</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-03" id="f-03-xl"
+                                            value="XL" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-03-xl">XL</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg mt-auto btn-whatsapp-product"
+                                    data-product="Blusa de Seda Elegante" data-type="Blusa"
+                                    data-product-id="prod-f-03" data-whatsapp-number="5491112345678"><i
+                                        class="bi bi-whatsapp"></i> Comprar por WhatsApp</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card product-card">
+                            <div class="product-image-container">
+                                <img src="/images/placeholder-falda-frente.png" class="card-img-top image-front"
+                                    alt="Falda Denim - Frente">
+                                <img src="/images/placeholder-falda-detalle.png" class="card-img-top image-back"
+                                    alt="Falda Denim - Detalle">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Falda Denim Mini</h5>
+                                <p class="card-text text-muted mb-2">Tiro alto, corte recto, lavado claro.</p>
+                                <p class="fs-4 text-success price-text mb-3">**$5.800 ARS**</p>
+                                <div class="mb-3 talle-select-group">
+                                    <label class="form-label fw-bold">Talla:</label>
+                                    <div class="btn-group size-selector w-100" role="group"
+                                        data-product-name="Falda Denim Mini" data-product-id="prod-f-04">
+                                        <input type="radio" class="btn-check" name="size-prod-f-04" id="f-04-s"
+                                            value="S" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-04-s">S</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-04" id="f-04-m"
+                                            value="M" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-04-m">M</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg mt-auto btn-whatsapp-product"
+                                    data-product="Falda Denim Mini" data-type="Falda/Short"
+                                    data-product-id="prod-f-04" data-whatsapp-number="5491112345678"><i
+                                        class="bi bi-whatsapp"></i> Comprar por WhatsApp</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card product-card">
+                            <div class="product-image-container">
+                                <img src="/images/placeholder-trench-frente.png" class="card-img-top image-front"
+                                    alt="Trench Coat - Frente">
+                                <img src="/images/placeholder-trench-espalda.png" class="card-img-top image-back"
+                                    alt="Trench Coat - Espalda">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Trench Coat Clásico</h5>
+                                <p class="card-text text-muted mb-2">Lona gabardina, color beige. Forro interno.</p>
+                                <p class="fs-4 text-success price-text mb-3">**$15.500 ARS**</p>
+                                <div class="mb-3 talle-select-group">
+                                    <label class="form-label fw-bold">Talla:</label>
+                                    <div class="btn-group size-selector w-100" role="group"
+                                        data-product-name="Trench Coat Clásico" data-product-id="prod-f-05">
+                                        <input type="radio" class="btn-check" name="size-prod-f-05" id="f-05-m"
+                                            value="M" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-05-m">M</label>
+                                        <input type="radio" class="btn-check" name="size-prod-f-05" id="f-05-l"
+                                            value="L" autocomplete="off"><label class="btn btn-outline-secondary"
+                                            for="f-05-l">L</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg mt-auto btn-whatsapp-product"
+                                    data-product="Trench Coat Clásico" data-type="Abrigo/Campera"
+                                    data-product-id="prod-f-05" data-whatsapp-number="5491112345678"><i
+                                        class="bi bi-whatsapp"></i> Comprar por WhatsApp</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer-mys text-white py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="d-flex align-items-center mb-3 mb-md-0">
+                <a class="navbar-brand-custom me-3 text-acento-morado" href="./index.html">
+                    <i class="fas fa-hanger text-acento-morado me-2"></i> MYS INDUMENTARIA
+                </a>
+                <p class="mb-0 small text-white">&copy; 2025 MYS INDUMENTARIA. | <a href="#"
+                        class="text-white text-decoration-underline footer-link">Políticas</a></p>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="text-white me-3 social-icon-hover"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3 social-icon-hover"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5492645468570" target="_blank" class="text-white social-icon-hover"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/catalogo.js"></script>
+
+</body>
+
+</html>
