@@ -181,10 +181,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .categoria-femenina {
-    background-image: url('/images/portada.jpg'); 
+    background-image: url('../images/portada.jpg'); 
 }
 .categoria-masculina {
-    background-image: url('/images/portada.jpg'); 
+    background-image: url('../images/portada.jpg'); 
 }
 
 .card-body-interactive {
