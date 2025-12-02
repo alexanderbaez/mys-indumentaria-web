@@ -1,502 +1,269 @@
-/* Importar fuentes: Montserrat (para encabezados) y Roboto (para cuerpo) */
+/* Importar fuentes elegantes: Playfair Display y Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
 
-/* --- PALETA DE COLORES (Profesional y Morado) --- */
+/* --- PALETA DE COLORES (Pasión y Profesionalismo) --- */
 :root {
-    --color-principal-oscuro: #2c3e50;      /* Azul medianoche (Fondos NAV/Footer) */
-    --color-acento-principal: #673AB7;   /* MORADO ÍNDIGO PROFUNDO (Acentos, Logo) */
-    --color-texto-general: #34495e;       
-    --color-fondo-suave: #ECEFF1;         
-    --color-warning-acento: #ffc107; /* Amarillo para acentos de Oferta */
+    --color-pasión: #2c3e50;          /* Borgoña Profundo (Fondo para Header/Footer) */
+    --color-rosa-suave: #2c3e507a;      /* Rosa Pálido (Fondo principal del body) */
+    --color-terracota-pasión: #34495e; /* Rojo Ladrillo Suave (Acentos) */
+    --color-oscuro-elegante: #082e48; /* Texto principal */
+    --color-blanco-nav: #ffffff;
 }
 
 body {
+    /* CORRECCIÓN DE SUPERPOSICIÓN: Padding superior para compensar el navbar fixed-top */
+    padding-top: 56px; 
     font-family: 'Roboto', sans-serif;
-    background-color: var(--color-fondo-suave); 
-    color: var(--color-texto-general);
-    /* [IMPORTANTE] Para que el fixed-top no tape el contenido */
-    padding-top: 70px; 
+    background-color: var(--color-fondo-suave);
+    color: var(--color-oscuro-elegante);
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color-principal-oscuro);
+h1, h2, h3, h4, h5, .display-6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-pasión);
 }
 
-/* Clases de utilidad */
-.section-title-acento {
-    color: var(--color-acento-principal) !important;
-}
-.text-acento-morado {
-    color: var(--color-acento-principal) !important;
-}
-.btn-primary-acento {
-    background-color: var(--color-acento-principal) !important;
-    border-color: var(--color-acento-principal) !important;
-    color: white !important;
-    transition: background-color 0.3s, transform 0.3s;
-    font-weight: 700;
-}
-.btn-primary-acento:hover {
-    background-color: #5E35B1 !important; 
-    border-color: #5E35B1 !important;
-    transform: translateY(-2px);
-}
-
-.nav-mys {
-    background-color: var(--color-principal-oscuro) !important; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* ESTILO DEL LOGO (navbar-brand-custom) - AJUSTE PROFESIONAL */
+/* --- NAV BAR --- */
 .navbar-brand-custom {
-    color: white !important; 
-    font-size: 1.6rem; /* Más presencia en escritorio */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--color-blanco-nav) !important; 
     text-decoration: none;
-    transition: color 0.3s;
-    /* Para centrar el ícono y el texto perfectamente */
-    display: flex; 
-    align-items: center;
-    padding: 0.2rem 0; /* Ajuste fino de padding vertical */
 }
-.navbar-brand-custom i {
-    font-size: 1.8rem; /* Tamaño del icono */
-    line-height: 1; /* Asegura la alineación vertical */
+#mainNav {
+    background-color: var(--color-pasión) !important; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-/* FIN DEL AJUSTE PROFESIONAL DEL LOGO */
-
-
-.nav-mys .nav-link {
+#mainNav .nav-link {
+    color: var(--color-blanco-nav) !important;
     font-weight: 500;
-    color: white !important; /* Links en Blanco */
-    padding: 8px 15px;
-    font-size: 0.95rem; 
-    transition: color 0.3s;
 }
-
-/* Efecto hover: Cambio de color del texto al Morado de tu marca */
-.nav-mys .nav-link:hover,
-.nav-mys .nav-link.active {
-    color: var(--color-acento-principal) !important; 
-}
-
-/* Toggler Icono */
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5) !important;
+#mainNav .nav-link:hover {
+    color: var(--color-rosa-suave) !important;
 }
 .navbar-toggler-icon {
-    /* Color del icono del Toggler en móvil (blanco) */
-    filter: brightness(0) invert(1);
-}
-.navbar-collapse {
-    background-color: var(--color-principal-oscuro); /* Fondo oscuro en móvil */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3csvg%3e") !important;
 }
 
+/* SOLUCIÓN VISIBILIDAD MENÚ MÓVIL (toggler) */
+#mainNav .navbar-collapse {
+    background-color: var(--color-pasión); 
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+}
 
-/* ####################################################### */
-/* 2. PORTADA (HERO) - Tarjeta flotante */
-/* ####################################################### */
+/* ------------------- ESTILOS DE PÁGINA ------------------- */
+
+/* --- 1. PORTADA / HERO BANNER (Responsividad corregida) --- */
 .hero-banner {
-    background-image: url('../images/portada.jpg'); 
-    background-size: cover; 
-    background-position: center; 
     height: 90vh; 
-    min-height: 550px;
-    position: relative; 
-    z-index: 1; 
-    padding-top: 0; 
-}
-
-/* Overlay */
-.hero-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 2; 
-}
-
-.hero-text-box-left {
-    max-width: 100%;
-    background-color: rgba(255, 255, 255, 0.95); 
-    color: var(--color-texto-general);
-    border-radius: 4px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    padding: 40px;
+    /* RUTA VERIFICADA PARA GITHUB PAGES */
+    background: url('../images/portada.jpg') no-repeat center right/cover;
     position: relative;
-    z-index: 3;
-    animation: fadeIn 1s ease-out;
+    /* [CORRECCIÓN CRÍTICA]: Eliminamos padding-top fijo para que no cause superposición */
+    padding-top: 0; 
+    border-bottom: 5px solid var(--color-terracota-pasión);
+}
+.hero-text-box-left {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    /* [CORRECCIÓN CRÍTICA]: Eliminamos margin-top fijo que causaba el desplazamiento */
+    margin-top: 0; 
+    position: relative; /* Aseguramos un posicionamiento normal */
 }
 .hero-text-box-left h1 {
-    color: var(--color-acento-principal); 
     font-weight: 900;
-    margin-bottom: 20px;
-}
-.hero-text-box-left p {
-    color: var(--color-principal-oscuro);
-    line-height: 1.6;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ####################################################### */
-/* 3. CATEGORÍAS (MAS Y FEM) */
-/* ####################################################### */
-
-#categorias-seccion h2 {
-    color: var(--color-principal-oscuro);
+    font-size: 2.5rem;
+    color: var(--color-pasión); 
 }
 
 .card-link-interactive {
-    display: block;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 300px;
-    position: relative;
+    /* [AJUSTE RESPONSIVO]: Flexbox para centrar contenido, altura consistente */
+    display: flex; /* Cambiamos a flex para centrar mejor el contenido interno */
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    height: 300px; /* Mantenemos altura consistente */
+
     text-decoration: none;
-    background-size: cover !important;
-    background-position: center !important;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .card-link-interactive:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 10px 20px rgba(140, 0, 44, 0.3);
 }
-.card-link-interactive::before {
-    content: "";
+.card-body-interactive {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-    z-index: 1;
-}
-
-.categoria-femenina {
-    background-image: url('../images/portada.jpg'); 
-}
-.categoria-masculina {
-    background-image: url('../images/portada.jpg'); 
-}
-
-.card-body-interactive {
-    position: relative;
-    z-index: 2;
-    color: white;
     padding: 30px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay oscuro inicial */
+    transition: background-color 0.3s;
 }
-.card-body-interactive h3 {
-    color: white;
-    font-weight: 700;
-}
-.card-body-interactive .btn-outline-light {
-    border-color: white;
-    color: white;
-    font-weight: 600;
-    transition: background-color 0.3s, color 0.3s;
-}
-.card-body-interactive .btn-outline-light:hover {
-    background-color: white;
-    color: var(--color-acento-principal);
-}
-.card-body-interactive .btn-outline-warning {
-    border-color: var(--color-warning-acento);
-    color: var(--color-warning-acento);
-}
-.card-body-interactive .btn-outline-warning:hover {
-    background-color: var(--color-warning-acento);
-    color: var(--color-principal-oscuro);
+.card-link-interactive:hover .card-body-interactive {
+    background-color: rgb(100, 72, 148); /* Overlay Borgoña al pasar el ratón */
 }
 
-/* ####################################################### */
-/* 4. NOSOTROS */
-/* ####################################################### */
-
+/* --- 3. SECCIÓN NOSOTROS --- */
 .nosotros-presentacion {
-    background-color: white; 
+    background-color: var(--color-rosa-suave);
     padding-top: 5rem;
     padding-bottom: 5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); 
 }
-.nosotros-card {
-    background-color: white;
-    border: 1px solid #ddd;
+.nosotros-presentacion .row {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+}
+.nosotros-presentacion .rounded-start {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
 }
 .nosotros-presentacion img {
-    height: 100%;
-    width: 100%; 
-    object-fit: cover;
-    min-height: 350px;
+    height: 500px; 
+    width: 100%;
+    object-fit: cover; 
 }
-.nosotros-text-box h2 {
-    color: var(--color-acento-principal);
+.nosotros-presentacion h2 {
     font-weight: 700;
 }
-.nosotros-text-box .lead {
-    color: #555;
-}
-
-/* ####################################################### */
-/* 5. FOOTER */
-/* ####################################################### */
-.footer-mys {
-    background-color: var(--color-principal-oscuro) !important;
-}
-.footer-mys .navbar-brand-custom {
-    color: var(--color-acento-principal) !important; 
-}
-.footer-link:hover {
-    color: var(--color-acento-principal) !important;
-}
-.social-icon-hover:hover {
-    color: var(--color-acento-principal) !important;
-}
 
 
-/* ####################################################### */
-/* WIDGET FLOTANTE DE WHATSAPP */
-/* ####################################################### */
+
+
+/* --- FOOTER Y WHATSAPP --- */
+.footer-custom {
+    background-color: var(--color-pasión);
+    font-family: 'Roboto', sans-serif;
+}
+.footer-custom a {
+    color: white;
+    text-decoration: none;
+}
 .whatsapp-flotante {
+    background-color: #25d366; 
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
+    bottom: 30px;
+    right: 30px;
+    color: #fff;
+    border-radius: 50%;
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-    z-index: 1500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-}
-.whatsapp-flotante:hover {
-    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    line-height: 60px;
 }
 
-
-/* ####################################################### */
-/* 6. ESTILOS ESPECÍFICOS DE LAS TARJETAS DEL CATÁLOGO */
-/* ####################################################### */
-
-.product-card {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: none;
-    height: 100%;
-    border-radius: 0.5rem; 
-    overflow: hidden; 
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-/* Contenedor de la imagen (Clave para la responsividad de las imágenes) */
-.product-image-container {
-    position: relative;
-    overflow: hidden;
-    /* Altura base para escritorio */
-    height: 350px; 
-    width: 100%;
-}
-
-/* Imágenes dentro del contenedor (Clave para el objeto fit) */
-.product-image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Asegura que la imagen cubra el contenedor sin deformarse */
-    object-fit: cover; 
-    transition: opacity 0.4s ease-in-out; 
-}
-
-/* Manejo del Hover (Frente/Espalda) */
-.product-image-container .image-front {
-    opacity: 1;
-}
-
-.product-image-container .image-back {
-    opacity: 0;
-}
-
-.product-card:hover .product-image-container .image-front {
-    opacity: 0;
-}
-
-.product-card:hover .product-image-container .image-back {
-    opacity: 1;
-}
-
-/* Estilos para los selectores de talla (Botones de radio de Bootstrap) */
-.size-selector .btn {
-    min-width: 45px;
-    padding: 0.375rem 0.5rem; 
-    font-size: 0.875rem;
-}
-
-.size-selector .btn.active,
-.size-selector input[type="radio"]:checked + label {
-    background-color: var(--color-acento-principal); 
-    border-color: var(--color-acento-principal);
-    color: white;
-    font-weight: bold;
-}
-
-/* Ajuste para que el botón de WhatsApp use todo el ancho en dispositivos pequeños */
-.whatsapp-btn, .btn-whatsapp-product {
-    width: 100%;
-}
-
-/* Ajuste general para la sección de categorías (Tabs) */
-.nav-tabs .nav-link {
-    font-weight: 600;
-    color: var(--color-texto-general);
-    border-radius: 0.5rem 0.5rem 0 0;
-}
-
-.nav-tabs .nav-link.active {
-    /* Usamos el color de acento principal para el tab activo */
-    color: var(--color-acento-principal);
-    border-bottom: 3px solid var(--color-acento-principal);
-    background-color: white;
-}
-
-/* Estilo para el precio */
-.text-success {
-    color: #4CAF50 !important; /* Usamos un verde más claro para mejor contraste en Dark Mode */
-}
-
-/* Estilo para que el cuerpo de la tarjeta ocupe el espacio disponible */
-.card-body {
-    flex-grow: 1;
-}
 
 /* ================================================= */
-/* MEDIA QUERIES (RESPONSIVE) - AJUSTES DE IMAGEN CORREGIDOS */
+/* OPTIMIZACIÓN PARA MÓVILES (Media Queries) */
 /* ================================================= */
-
-/* Tablet y Teléfonos */
 @media (max-width: 991.98px) {
-    body {
-        padding-top: 60px; 
-    }
     
-    /* Header en móvil */
-    .nav-mys .navbar-brand-custom {
-        font-size: 1.4rem; 
-        padding: 0.1rem 0;
-    }
-    .nav-mys .navbar-brand-custom i {
-        font-size: 1.6rem;
+    body {
+        padding-top: 70px; 
     }
 
-    /* Hero en móvil */
     .hero-banner {
-        height: auto;
-        min-height: 400px;
-        align-items: flex-start; 
-        padding-top: 30px;
+        height: auto; 
+        min-height: 400px; 
+        background-position: center center;
+        padding-top: 60px; 
         padding-bottom: 30px;
     }
     
     .hero-text-box-left {
-        max-width: 95%; 
-        margin: 0 auto;
-        padding: 25px;
+        margin-top: 0; 
+        padding: 20px;
         text-align: center;
+        width: 90%; 
+        margin-left: auto;
+        margin-right: auto;
     }
+    
     .hero-text-box-left h1 {
-        font-size: 2.2rem;
-    }
-    .hero-text-box-left .lead {
-        font-size: 1rem;
+        font-size: 1.8rem; 
     }
 
-    /* Sección Nosotros en móvil */
-    .nosotros-presentacion .row {
-        text-align: center;
-    }
     .nosotros-presentacion img {
-        height: auto;
+        height: 300px; 
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        border-bottom-left-radius: 0 !important; 
     }
-    .nosotros-text-box {
-        padding: 30px !important;
+    .nosotros-presentacion .col-md-6.p-5 {
+        padding: 30px !important; 
+        text-align: center; 
+    }
+    
+    .product-img-top {
+        height: 300px;
     }
 
-    /* Footer en móvil */
-    .footer-mys .container {
+    .footer-custom .container {
+        flex-direction: column;
         text-align: center;
     }
-    .footer-mys .d-flex.align-items-center {
+    .footer-custom .d-flex.align-items-center {
         flex-direction: column;
-    }
-    .footer-mys .navbar-brand-custom {
         margin-bottom: 10px;
     }
-
-    /* AJUSTE CLAVE: Reducimos la altura de la imagen en dispositivos intermedios */
-    .product-image-container {
-        height: 250px; /* Altura más cómoda para tablets y móviles grandes */
-    }
-
-    /* Ajuste para los tabs de categorías en dispositivos pequeños */
-    .nav-tabs .nav-link {
-        font-size: 0.9rem;
-        padding: 10px 8px;
-    }
-    /* Asegurar que el selector de talla no rompa el diseño */
-    .size-selector .btn {
-        min-width: 35px;
-        font-size: 0.8rem;
-    }
 }
 
-/* Teléfonos Pequeños (Ej. iPhone SE o similares) */
-@media (max-width: 575.98px) {
-    .hero-text-box-left {
-        padding: 20px;
-    }
-    .hero-text-box-left h1 {
-        font-size: 1.8rem;
-    }
-    .hero-text-box-left .lead {
-        font-size: 0.9rem;
-    }
-    .whatsapp-flotante {
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-        bottom: 15px;
-        right: 15px;
-    }
-    /* AJUSTE CRÍTICO: Reducimos la altura de la imagen del producto para que se vea completa */
-    .product-image-container {
-        height: 200px; 
-    }
-    /* Opcional: Reducir el padding de la tarjeta para ahorrar espacio */
-    .product-card .card-body {
-        padding: 10px;
-    }
+/* --- NUEVOS ESTILOS PARA EFECTO HOVER DE IMAGENES EN CATÁLOGO --- */
+
+.product-image-container {
+    position: relative;
+    height: 350px; /* Asegura una altura consistente para todas las imágenes */
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
 }
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.image-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Imagen de dorso oculta por defecto */
+}
+
+/* Al hacer hover en la TARJETA COMPLETA */
+.product-card:hover .image-front {
+    opacity: 0; /* Oculta la imagen frontal */
+}
+
+.product-card:hover .image-back {
+    opacity: 1; /* Muestra la imagen de dorso */
+}
+
+/* Ajusta el borde inferior para que esté en el contenedor de imagen */
+.product-card .card-body {
+    border-top: 3px solid var(--color-terracota-pasión); /* Le da un acento de color al cuerpo */
+}
+
+/* ----------------------------------------------------------------- */
