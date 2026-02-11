@@ -2,7 +2,7 @@
    LÓGICA DE NEGOCIO - M&S INDUMENTARIA (Moda & Librería)
    ========================================================================== */
 
-const WHATSAPP_NUMBER = '5492646121771';
+const WHATSAPP_NUMBER = '5492644762626';
 let carrito = JSON.parse(localStorage.getItem('msIndumentariaCarrito')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedor = document.getElementById("contenedor-productos");
     if (contenedor) {
         const titulo = document.title.toLowerCase();
+        let categoriaBuscada = "";
         if (titulo.includes("mujer")) {
             categoriaBuscada = "mujeres";
         } else if (titulo.includes("hombre")) {
@@ -69,11 +70,44 @@ function dibujarProductos(lista) {
     });
 }
 
-// --- DETALLE DEL PRODUCTO ---
+// --- DETALLE DEL PRODUCTO (GALERÍA FORZADA) ---
 window.mostrarDetalleProducto = function (id) {
     const p = PRODUCTOS.find(prod => prod.id === id);
     if (!p) return;
 
+    // 1. Generar los items del carrusel (fotos)
+    let slides = p.imagenes.map((img, idx) => `
+        <div class="carousel-item ${idx === 0 ? 'active' : ''}">
+            <img src="${img}" class="d-block w-100" style="height: 500px; object-fit: cover;">
+        </div>`).join('');
+
+    // 2. Generar controles e indicadores SOLO si hay más de una foto
+    let controls = "";
+    let indicators = "";
+    
+    if (p.imagenes.length > 1) {
+        indicators = `
+            <div class="carousel-indicators">
+                ${p.imagenes.map((_, idx) => `
+                    <button type="button" data-bs-target="#carouselDetalle" data-bs-slide-to="${idx}" 
+                            class="${idx === 0 ? 'active' : ''}" aria-current="${idx === 0 ? 'true' : ''}" 
+                            style="background-color: #000; width: 10px; height: 10px; border-radius: 50%;">
+                    </button>
+                `).join('')}
+            </div>`;
+
+        controls = `
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDetalle" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDetalle" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>`;
+    }
+
+    // 3. Lógica de Talles
     let htmlTalles = "";
     if (p.talles && p.talles.length > 0) {
         htmlTalles = `
@@ -85,20 +119,25 @@ window.mostrarDetalleProducto = function (id) {
             </div>`;
     }
 
+    // 4. Construcción del Modal Completo
     const modalHtml = `
         <div class="modal fade" id="modalDetalle" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content border-0 rounded-0">
+                <div class="modal-content border-0 rounded-0 shadow-lg">
                     <div class="modal-body p-0">
-                        <button type="button" class="btn-close position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
                         <div class="row g-0">
-                            <div class="col-md-6">
-                                <img src="${p.imagenes[0]}" class="img-fluid w-100" style="height: 100%; object-fit: cover;">
+                            <div class="col-md-6 bg-light">
+                                <div id="carouselDetalle" class="carousel slide" data-bs-ride="carousel">
+                                    ${indicators}
+                                    <div class="carousel-inner">${slides}</div>
+                                    ${controls}
+                                </div>
                             </div>
                             <div class="col-md-6 p-4 d-flex flex-column justify-content-center">
                                 <h2 class="h3 fw-bold mb-2">${p.nombre}</h2>
-                                <h3 class="mb-4 text-danger fw-bold">$${p.precio.toLocaleString('es-AR')}</h3>
-                                <p class="text-muted mb-4">${p.descripcion}</p>
+                                <h3 class="mb-3 text-danger fw-bold">$${p.precio.toLocaleString('es-AR')}</h3>
+                                <p class="text-muted small mb-4">${p.descripcion}</p>
                                 
                                 ${htmlTalles}
 
@@ -113,11 +152,12 @@ window.mostrarDetalleProducto = function (id) {
             </div>
         </div>`;
 
-    document.getElementById('modalDetalle')?.remove();
+    // 5. Inyectar y Mostrar
+    const oldModal = document.getElementById('modalDetalle');
+    if (oldModal) oldModal.remove();
     document.body.insertAdjacentHTML('beforeend', modalHtml);
     new bootstrap.Modal(document.getElementById('modalDetalle')).show();
 };
-
 // --- AGREGAR AL CARRITO ---
 window.agregarAlCarritoConTalle = function (id) {
     const p = PRODUCTOS.find(prod => prod.id === id);
@@ -209,26 +249,31 @@ function actualizarContadorUI() {
     contador.style.display = totalUnidades === 0 ? 'none' : 'flex';
 }
 
-// --- WHATSAPP ---
+// --- WHATSAPP (MÁS INTERACTIVO Y PROFESIONAL) ---
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
-    let mensaje = "¡Hola M&S Indumentaria! Quiero realizar el siguiente pedido:\n\n";
+    let mensaje = "🛍️ *NUEVO PEDIDO - M&S INDUMENTARIA* 🛍️\n";
+    mensaje += "------------------------------------------\n\n";
+    
     let total = 0;
 
     carrito.forEach((item, index) => {
         const subtotal = item.precio * item.cantidad;
         total += subtotal;
-        mensaje += `${index + 1}. *${item.nombre}*\n`;
-        mensaje += `   Talle: ${item.talle}\n`;
-        mensaje += `   Cant: ${item.cantidad} x $${item.precio.toLocaleString('es-AR')}\n`;
-        mensaje += `   Subtotal: $${subtotal.toLocaleString('es-AR')}\n\n`;
+        mensaje += `📍 *${index + 1}. ${item.nombre}*\n`;
+        mensaje += `   📏 Talle: ${item.talle}\n`;
+        mensaje += `   🔢 Cantidad: ${item.cantidad}\n`;
+        mensaje += `   💰 Subtotal: $${subtotal.toLocaleString('es-AR')}\n\n`;
     });
 
-    mensaje += `--------------------------\n`;
-    mensaje += `*TOTAL A PAGAR: $${total.toLocaleString('es-AR')}*\n`;
-    mensaje += `--------------------------\n\n`;
-    mensaje += `Nombre del cliente: ______________`;
+    mensaje += "------------------------------------------\n";
+    mensaje += `💵 *TOTAL A PAGAR: $${total.toLocaleString('es-AR')}*\n`;
+    mensaje += "------------------------------------------\n\n";
+    mensaje += "👤 *Datos del Cliente:*\n";
+    mensaje += "▫️ Nombre: \n";
+    mensaje += "▫️ Dirección de entrega: \n\n";
+    mensaje += "🚀 _¡Espero tu confirmación para coordinar el envío!_";
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, "_blank");
 }
