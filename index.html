@@ -4,138 +4,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYS INDUMENTARIA - Tienda Web</title>
+    <title>M&S Indumentaria | Tienda Multirubro</title>
+
+    <meta property="og:title" content="M&S Indumentaria | Moda y Librería">
+    <meta property="og:description" content="Encontrá lo mejor en tendencia masculina, femenina y artículos de librería en un solo lugar.">
+    <meta property="og:image" content="./images/LOGO.png">
+    <meta property="og:url" content="https://tu-url-aqui.com">
+    <meta property="og:type" content="website">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-white" id="mainNav">
             <div class="container">
-                <a class="navbar-brand-custom" href="index.html">MYS INDUMENTARIA</a>
-                <button class="navbar-toggler p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                        class="bi bi-list text-light" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                </button>
+                <a class="navbar-brand-custom d-flex align-items-center text-decoration-none" href="index.html">
+                    <img src="./images/LOGO.png" alt="M&S Logo" style="height: 50px;" class="me-2">
+                    <span class="fw-bold text-dark d-none d-sm-inline" style="letter-spacing: 2px; font-size: 1.2rem;">M&S INDUMENTARIA</span>
+                </a>
+
+                <div class="d-flex align-items-center order-lg-last">
+                    <a class="nav-link position-relative text-dark me-3" href="#" id="cartIcon" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <i class="fas fa-shopping-bag fa-lg"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem; display: none;">0</span>
+                    </a>
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto fw-bold text-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">INICIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/mujer.html">MUJER</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/hombres.html">HOMBRE</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/libreria.html">LIBRERÍA</a></li>
                         <li class="nav-item"><a class="nav-link" href="#nosotros-seccion">NOSOTROS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#explora-por-estilos-section">CATEGORIAS</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <section class="hero-banner d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="hero-text-box-left">
-                        <h1 class="display-5">Estilo que te Define. Calidad y Performance.</h1>
-                        <p class="lead">
-                            Hemos seleccionado cuidadosamente cada prenda pensando en el rendimiento y la durabilidad.
-                            Nuestra misión es simple: curar la colección perfecta para tu día a día. Explora el confort
-                            y la moda que te distingue.
-                        </p>
-                        <a href="html/catalogo.html" class="btn btn-danger btn-lg mt-3">Ver Colección</a>
+    <main>
+        <section class="hero-banner d-flex align-items-center">
+            <div class="container">
+                <div class="hero-text-box-left border-0 bg-transparent shadow-none" style="max-width: 650px;">
+                    <span class="text-uppercase mb-2 d-block" style="letter-spacing: 5px; color: #ffffff; font-weight: 700; font-size: 0.9rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        Colección 2026
+                    </span>
+                    <h1 class="display-2 fw-bold mb-3 text-white" style="line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.3);">
+                        Estilo con <br>
+                        <span style="font-style: italic; font-weight: 400; font-family: 'Playfair Display';">Identidad Propia.</span>
+                    </h1>
+                    <p class="lead mb-4 text-white" style="font-weight: 400; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">
+                        Descubrí nuestra selección exclusiva en indumentaria para ellos, para ellas y todo lo que necesitás para tu día a día en librería.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#que-buscas-hoy-section" class="btn btn-light btn-lg rounded-0 px-5 py-3 shadow-lg fw-bold" style="letter-spacing: 2px; font-size: 0.8rem;">VER CATEGORÍAS</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="explora-por-estilos-section" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 display-6">Explora por Estilo</h2>
+        <section id="que-buscas-hoy-section" class="py-5 bg-white">
+            <div class="container py-5">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="display-4 font-playfair fw-bold" style="color: #1a1a1a;">Selección M&S</h2>
+                        <div style="width: 60px; height: 3px; background: #000; margin: 15px auto;"></div>
+                        <p class="text-muted">Calidad y variedad en cada una de nuestras líneas.</p>
+                    </div>
+                </div>
 
-            <div class="row justify-content-center g-4">
-
-                <div class="col-md-6 col-sm-12">
-                    <a href="./html/femenino.html" class="card-link-interactive shadow-lg"
-                        style="background-image: url('./images/portada.jpg');">
-                        <div class="card-body-interactive">
-                            <i class="fas fa-venus fa-3x mb-3"></i>
-                            <h3>Colección Femenina</h3>
-                            <p>Tendencias en indumentaria para el día a día, con máximo confort.</p>
-                            <span class="btn btn-outline-light mt-2">Ver Ropa de Mujer</span>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="position-relative overflow-hidden shadow-lg" style="height: 500px;">
+                            <a href="html/mujer.html" class="category-bubble w-100 h-100 d-block border-0 rounded-0" style="background-image: url('./images/mujer_banner.jpg'); background-size: cover; background-position: center;">
+                                <div class="bubble-content p-5 d-flex flex-column justify-content-end h-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                    <h3 class="display-5 text-white fw-bold mb-2">Mujer</h3>
+                                    <p class="text-white-50 text-uppercase" style="letter-spacing: 2px;">Tendencia & Elegancia</p>
+                                    <span class="btn btn-outline-light rounded-0 w-50">Explorar</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
+                    </div>
 
-                <div class="col-md-6 col-sm-12">
-                    <a href="./html/masculino.html" class="card-link-interactive shadow-lg"
-                        style="background-image: url('./images/portada.jpg');">
-                        <div class="card-body-interactive">
-                            <i class="fas fa-mars fa-3x mb-3"></i>
-                            <h3>Colección Masculina</h3>
-                            <p>Durabilidad y diseño moderno para todas las ocasiones.</p>
-                            <span class="btn btn-outline-warning mt-2">Ver Ropa de Hombre</span>
+                    <div class="col-md-6">
+                        <div class="position-relative overflow-hidden shadow-lg" style="height: 500px;">
+                            <a href="html/hombres.html" class="category-bubble w-100 h-100 d-block border-0 rounded-0" style="background-image: url('./images/hombre_banner.jpg'); background-size: cover; background-position: center;">
+                                <div class="bubble-content p-5 d-flex flex-column justify-content-end h-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                    <h3 class="display-5 text-white fw-bold mb-2">Hombre</h3>
+                                    <p class="text-white-50 text-uppercase" style="letter-spacing: 2px;">Estilo & Confort</p>
+                                    <span class="btn btn-outline-light rounded-0 w-50">Explorar</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
+                    </div>
 
+                    <div class="col-12 mt-4">
+                        <div class="position-relative overflow-hidden shadow-lg" style="height: 300px;">
+                            <a href="html/libreria.html" class="category-bubble w-100 h-100 d-block border-0 rounded-0" style="background-image: url('./images/libreria_banner.jpg'); background-size: cover; background-position: center;">
+                                <div class="bubble-content p-4 d-flex flex-column justify-content-center align-items-center text-center h-100" style="background: rgba(0,0,0,0.5);">
+                                    <h3 class="display-4 text-white fw-bold mb-2">Librería</h3>
+                                    <p class="text-white text-uppercase" style="letter-spacing: 4px;">Todo para tus proyectos</p>
+                                    <span class="btn btn-light rounded-0 px-5">VER ARTÍCULOS</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros-seccion" class="py-5 bg-light">
+            <div class="container py-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-6">
+                        <div class="p-4 bg-white shadow-sm">
+                            <img src="images/LOGO.png" alt="M&S Indumentaria" class="img-fluid d-block mx-auto" style="max-height: 300px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="text-uppercase small fw-bold mb-3 text-muted" style="letter-spacing: 2px;">Nuestra Historia</h4>
+                        <h2 class="display-5 fw-bold mb-4" style="font-family: 'Playfair Display';">M&S Indumentaria</h2>
+                        <p class="text-muted mb-4 lead">Nos dedicamos a ofrecer soluciones integrales en vestimenta y artículos escolares/oficina en San Juan.</p>
+                        <p class="text-muted">En <strong>M&S</strong>, creemos que la calidad no tiene por qué ser inalcanzable. Nuestra misión es brindar productos seleccionados que combinen durabilidad y estilo, asegurando que cada cliente encuentre exactamente lo que necesita en un solo lugar.</p>
+                        <a href="https://wa.me/5492646121771" class="btn btn-dark rounded-0 px-4 mt-3 py-2">CONTACTANOS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content rounded-0 border-0 shadow-lg">
+                <div class="modal-header border-0 bg-dark text-white">
+                    <h5 class="modal-title fw-bold">MI PEDIDO</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4" id="cart-items">
+                    </div>
+                <div class="modal-footer border-0 bg-light p-4 d-flex flex-column">
+                    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+                        <span class="fw-bold">TOTAL:</span>
+                        <div id="cart-total" class="h4 mb-0 fw-bold">$0</div>
+                    </div>
+                    <button class="btn btn-success w-100 py-3 rounded-0 fw-bold" onclick="enviarPedidoWhatsApp()">
+                        <i class="fab fa-whatsapp me-2"></i> FINALIZAR POR WHATSAPP
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-
-    <section id="nosotros-seccion" class="nosotros-presentacion">
-        <div class="container">
-            <div class="row g-0 align-items-center rounded shadow-lg overflow-hidden nosotros-card">
-                <div class="col-md-6">
-                    <img src="images/portada.jpg" class="img-fluid rounded-start"
-                        alt="Vista de la marca MYS INDUMENTARIA">
+    <footer class="text-white py-5" style="background-color: #1a1a1a;">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-md-4 text-center text-md-start">
+                    <img src="images/LOGO.png" alt="Logo" style="height: 60px; filter: brightness(0) invert(1);" class="mb-4">
+                    <p class="small opacity-50">Tu tienda multirubro de confianza. Calidad y atención personalizada en San Juan.</p>
                 </div>
-                <div class="col-md-6 p-5 nosotros-text-box">
-                    <h2 class="display-6 mb-4 section-title-acento">Nuestra Promesa de Calidad</h2>
-                    <p class="lead">
-                        MYS INDUMENTARIA nace de la pasión por seleccionar y ofrecer moda que celebra la comodidad y el
-                        estilo moderno, sin comprometer la calidad. Curamos colecciones que te hacen sentir seguro.
-                    </p>
-                    <p>
-                        Cada prenda en nuestra colección ha sido cuidadosamente elegida por la calidad de sus tejidos,
-                        asegurando un ajuste perfecto y duradero. En MYS, garantizamos que el mejor estilo empieza con
-                        la calidad de las mejores prendas.
-                    </p>
+                <div class="col-md-4 text-center">
+                    <h5 class="text-uppercase small fw-bold mb-4" style="letter-spacing: 2px;">Secciones</h5>
+                    <ul class="list-unstyled small opacity-75">
+                        <li class="mb-2"><a href="html/mujer.html" class="text-white text-decoration-none">Mujer</a></li>
+                        <li class="mb-2"><a href="html/hombres.html" class="text-white text-decoration-none">Hombre</a></li>
+                        <li class="mb-2"><a href="html/libreria.html" class="text-white text-decoration-none">Librería</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h5 class="text-uppercase small fw-bold mb-4" style="letter-spacing: 2px;">Seguinos</h5>
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3 fs-4 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5492646121771" class="text-white"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="small opacity-50">San Juan, Argentina</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <footer class="footer-custom text-white py-4">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-                <a class="navbar-brand-custom me-3" href="index.html">MYS INDUMENTARIA</a>
-                <p class="mb-0 small text-white">&copy; 2025 MYS INDUMENTARIA.  | <a href="#"
-                        class="text-white text-decoration-underline">Políticas</a></p>
-            </div>
-            <div class="social-icons">
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5492646121771" target="_blank" class="text-white"><i
-                        class="fab fa-whatsapp"></i></a>
-            </div>
+            <hr class="my-5 opacity-10">
+            <p class="text-center mb-0 small opacity-25">&copy; 2026 M&S INDUMENTARIA.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/5492646121771?text=Hola,%20quisiera%20hacer%20una%20consulta%20general%20sobre%20lencería."
-        target="_blank" class="whatsapp-flotante">
+    <a href="https://wa.me/5492646121771" target="_blank" class="whatsapp-flotante shadow-lg">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-
-
+    <script src="js/productos.js"></script>
+    <script src="js/index.js"></script>
 </body>
-
 </html>
